@@ -83,35 +83,39 @@ FROM superstore;
 SELECT AVG(sales) AS average_sales
 FROM superstore;
 
--- ===========================================================
--- Query 9
--- Highest and Lowest Sales
--- ===========================================================
+-- ==========================================================
+-- Query 9: Find Highest and Lowest Sales
+-- Business Question:
+-- What are the highest and lowest sales values recorded?
+-- ==========================================================
 SELECT
     MAX(sales) AS highest_sale,
     MIN(sales) AS lowest_sale
 FROM superstore;
 
--- ===========================================================
--- Query 10
--- Orders with Sales greater than 500
--- ===========================================================
+-- ==========================================================
+-- Query 10: Orders with Sales Greater Than 500
+-- Business Question:
+-- Which orders generated sales greater than 500?
+-- ==========================================================
 SELECT *
 FROM superstore
 WHERE sales > 500;
 
--- ===========================================================
--- Query 11
--- Orders with Negative Profit
--- ===========================================================
+-- ==========================================================
+-- Query 11: Orders with Negative Profit
+-- Business Question:
+-- Which orders resulted in a financial loss?
+-- ==========================================================
 SELECT *
 FROM superstore
 WHERE profit < 0;
 
--- ===========================================================
--- Query 12
--- Technology Orders
--- ===========================================================
+-- ==========================================================
+-- Query 12: Technology Category Orders
+-- Business Question:
+-- Which orders belong to the Technology category?
+-- ==========================================================
 SELECT *
 FROM superstore
 WHERE category = 'Technology';
@@ -389,13 +393,12 @@ GROUP BY customer_name;
 -- ==========================================================
 WITH customer_sales AS
 (
-    SELECT
+	SELECT
         customer_name,
         SUM(sales) AS total_sales
     FROM superstore
     GROUP BY customer_name
 )
-
 SELECT *
 FROM customer_sales
 WHERE total_sales >
